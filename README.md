@@ -1,2 +1,1 @@
 # softUniCourses
-Hello world!
