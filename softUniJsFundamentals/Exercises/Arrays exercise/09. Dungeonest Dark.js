@@ -2,7 +2,7 @@ function dungeons(arr) {
   let dungeon = arr[0].split("|");
   let initialHealth = 100;
   let coinsCount = 0;
-  let coinsFound = 0;
+  let bitcoins = 0;
   let roomIndex = 0;
 
   for (let i = 0; i < dungeon.length; i++) {
@@ -22,9 +22,9 @@ function dungeons(arr) {
       console.log(`Current health: ${initialHealth} hp.`);
 
     } else if (itemOrMonster === "chest") {
-      coinsFound = num;
+      bitcoins = num;
       coinsCount += num;
-      console.log(`You found ${coinsFound} coins.`);
+      console.log(`You found ${bitcoins} bitcoins.`);
 
     } else if (itemOrMonster !== "potion" && itemOrMonster !== "chest") {
       initialHealth -= num;
@@ -39,7 +39,7 @@ function dungeons(arr) {
   }
   if (initialHealth > 0) {
     console.log(`You've made it!`);
-    console.log(`Coins: ${coinsCount}`);
+    console.log(`Bitcoins: ${coinsCount}`);
     console.log(`Health: ${initialHealth}`);
   }
 }
