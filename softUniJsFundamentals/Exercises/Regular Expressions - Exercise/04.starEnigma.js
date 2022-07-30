@@ -1,11 +1,11 @@
 function starEnigma(input) {
-    let numOfPlanets = Number(input.shift());
-    let pattern = /[starSTAR]/g;
+    const numOfPlanets = Number(input.shift());
+    const pattern = /[starSTAR]/g;
     let res = '';
     let keyCount = 0;
     let planet = [];
     
-    for (let word of input) {
+    for (const word of input) {
         let splitted = word.split('')
         for (const ch of splitted) {
             if (ch.match(pattern)) {
@@ -27,12 +27,12 @@ function starEnigma(input) {
     let destroyed = [];
     let attacked = [];
 
-    let match = /@(?<planetName>[A-z]+)[^@\-!:>]*:(?<population>\d+)[^@\-!:>]*!(?<attack>[AD])![^@\-!:>]*\->(?<soldierCount>\d+)/g;
+    const match = /@(?<planetName>[A-z]+)[^@\-!:>]*:(?<population>\d+)[^@\-!:>]*!(?<attack>[AD])![^@\-!:>]*\->(?<soldierCount>\d+)/g;
     let planetsMatch = match.exec(planet);
 
     while (planetsMatch) {
         planetsMatch.groups.attack === 'A' ? attackedCount++ : destroyed.push(planetsMatch.groups.planetName) 
-        planetsMatch.groups.attack === 'D' ? destroyedCount ++ : attacked.push(planetsMatch.groups.planetName)
+        planetsMatch.groups.attack === 'D' ? destroyedCount++ : attacked.push(planetsMatch.groups.planetName)
         planetsMatch = match.exec(planet);
     }
     attacked.sort((a, b) => a.localeCompare(b));
