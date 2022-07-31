@@ -5,9 +5,7 @@ function serializeString(input) {
   for (let i = 0; i < text.length; i++) {
     let ch = text[i];
     if (text[i] === ch) {
-      if (!box[ch]) {
-        box[ch] = [];
-      }
+        !box[ch] ? box[ch] = [] : ''
     }
   }
   let keys = Object.keys(box);
@@ -15,16 +13,13 @@ function serializeString(input) {
     let current = keys.shift();
     for (let i = 0; i < text.length; i++) {
       for (let j = 0; j < text.length; j++) {
-        if (current === text[j]) {
-          box[current].push(j);
-        }
+        current === text[j] ? box[current].push(j) : ''
       }
       current = keys.shift();
     }
   }
-  let entr = Object.entries(box);
-  for (const ch of entr) {
-    console.log(`${ch[0]}:${ch[1].join("/")}`);
+  for (const [ch, val] of Object.entries(box)) {
+    console.log(`${ch[0]}:${val.join("/")}`);
   }
 }
 serializeString(["avjavamsdmcalsdm"]);
