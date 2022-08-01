@@ -1,0 +1,4 @@
+function treasureFinder(input) {
+    
+}
+treasureFinder();

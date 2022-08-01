@@ -19,8 +19,8 @@ function deserializeString(input) {
     charIndex.push(char);
     charIndex = charIndex.concat(index);
     let ch = charIndex.shift();
-    for (let j = 0; j < charIndex.length; j++) {
-        numBox.includes(charIndex[j]) ? numBox.splice(charIndex[j], 1, ch) : ''
+    for (const word of charIndex) {
+        numBox.includes(word) ? numBox.splice(word, 1, ch) : ''
     }
   }
   console.log(numBox.join(""));
