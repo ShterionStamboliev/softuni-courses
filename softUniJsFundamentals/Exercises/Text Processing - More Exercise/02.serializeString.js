@@ -5,7 +5,7 @@ function serializeString(input) {
   for (let i = 0; i < text.length; i++) {
     let ch = text[i];
     if (text[i] === ch) {
-        !box[ch] ? box[ch] = [] : box[ch] = []
+        box[ch] = [];
     }
   }
   let keys = Object.keys(box);
