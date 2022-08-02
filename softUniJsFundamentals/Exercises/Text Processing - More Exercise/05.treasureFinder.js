@@ -16,15 +16,15 @@ function treasureFinder(input) {
       }
       box.push(res);
       res = "";
-      i = -1;
+      i = 0;
       text = input.shift();
       break;
     }
   }
   while (box.length > 0) {
-    let itemName = box.shift().toString().split('&');
+    let itemName = box.shift().split('&');
     let itemType = itemName[1];
-    let coordinates = itemName[2].toString().split('<')[1].slice(0, -1)
+    let coordinates = itemName[2].split('<')[1].slice(0, -1)
     console.log(`Found ${itemType} at ${coordinates}`);
   }
 }
