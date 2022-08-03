@@ -1,0 +1,4 @@
+function printDna(input) {
+    
+}
+printDna();
