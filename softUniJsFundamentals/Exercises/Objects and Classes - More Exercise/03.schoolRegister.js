@@ -20,7 +20,7 @@ function schoolRegister(arr) {
             let student = register[studentGrade];
             console.log(`${studentGrade} Grade`);
             console.log(`List of students: ${student.map(student => student.studentName).join(', ')}`);
-            console.log(`Average annual grade from last year: ${averageScore(student.map(s => s.studentAverageGrade)).toFixed(2)}`);
+            console.log(`Average annual score from last year: ${averageScore(student.map(s => s.studentAverageGrade)).toFixed(2)}`);
             console.log();
         }
         function averageScore(sortedRegister) {
