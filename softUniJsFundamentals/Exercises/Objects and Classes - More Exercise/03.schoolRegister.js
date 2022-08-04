@@ -7,7 +7,7 @@ function schoolRegister(arr) {
         let studentGrade = Number(info[1].split(': ')[1]) + 1;
         let studentAverageGrade = Number(info[2].split(': ')[1]);
         if (studentAverageGrade >= 3) {
-            let student = {studentName, studentGrade}
+            let student = {studentName, studentGrade, studentAverageGrade}
             if (!register.hasOwnProperty(studentGrade)) {
                 register[studentGrade] = [];
             }
