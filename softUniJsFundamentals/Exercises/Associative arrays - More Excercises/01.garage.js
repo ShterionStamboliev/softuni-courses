@@ -1,19 +1,21 @@
 function garage(arr) {
-    let obj = new Map();
+  let obj = {};
 
-    for (const info of arr) {
-        let [garageNumber, garageProperties] = info.split(' - ');
-        garageProperties.split(', ');
-        if (!obj.hasOwnProperty(garageNumber)) {
-            obj[garageNumber] = new Map();
-        }
-        obj[garageNumber].set(garageProperties);
-    }
-    let entries = Object.entries(obj);
+  for (const info of arr) {
+    let [garage, carInfo] = info.split(" - ");
 
-    for (const info of entries) {
-        console.log(info);
+    if (!obj[garage]) {
+      obj[garage] = [];
     }
+    obj[garage].push(carInfo);
+  }
+  Object.entries(obj).forEach(([garageNum, cars]) => {
+    console.log(`Garage № ${garageNum}`);
+    for (let info of cars) {
+      info = info.split(': ').join(' - ')
+      console.log(`--- ${info}`);
+    }
+  });
 }
 garage([
   "1 - color: blue, fuel type: diesel",
