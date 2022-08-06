@@ -4,11 +4,7 @@ function palindromeIntegers(arr) {
     let num = String(arr[i]);
     let firstDigit = Number(num[0]);
     let lastDigit = num % 10;
-    if (firstDigit === lastDigit) {
-      console.log('true');
-    } else {
-      console.log('false');
-    }
+    firstDigit === lastDigit ? console.log('true') : console.log('false');
   }
 }
 // palindromeIntegers([123, 323, 421, 121]);
