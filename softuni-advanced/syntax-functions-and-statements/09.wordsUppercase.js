@@ -9,7 +9,7 @@ function wordsUppercase(str) {
     count++;
     count === len ? result += info : result += info + ', ';
   }
-  return(console.log(result));
+  return result;
 }
 wordsUppercase("Hi, how are you?");
 wordsUppercase("Functions in JS can be nested, i.e. hold other functions");
