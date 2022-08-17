@@ -1,6 +1,5 @@
 function pieceOfPie(arr, firstTarget, secondTarget) {
-  arr = arr.slice(arr.indexOf(firstTarget), arr.indexOf(secondTarget) + 1);
-  return arr;
+  return arr.slice(arr.indexOf(firstTarget), arr.indexOf(secondTarget) + 1);
 }
 pieceOfPie(
   [
