@@ -1,0 +1,16 @@
+function pieceOfPie(arr, firstTarget, secondTarget) {
+  arr = arr.slice(arr.indexOf(firstTarget), arr.indexOf(secondTarget) + 1);
+  return arr;
+}
+pieceOfPie(
+  [
+    "Apple Crisp",
+    "Mississippi Mud Pie",
+    "Pot Pie",
+    "Steak and Cheese Pie",
+    "Butter Chicken Pie",
+    "Smoked Fish Pie",
+  ],
+  "Pot Pie",
+  "Smoked Fish Pie"
+);
