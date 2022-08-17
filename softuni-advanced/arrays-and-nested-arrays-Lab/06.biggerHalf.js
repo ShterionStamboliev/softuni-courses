@@ -1,12 +1,9 @@
 function biggerHalf(input) {
     if (input.length % 2 === 1) {
-        let len = input.length;
-        let sliced = Math.round(len / 2);
-        let result = input.sort((a, b) => a - b).slice(-sliced);
-        return result;
+        return input.sort((a, b) => a - b).slice(-Math.round(input.length / 2));
     } else {
-        input = input.sort((a, b) => a - b).slice(-input.length / 2);
-        return input;
+        return input.sort((a, b) => a - b).slice(-input.length / 2);
     }
 }
 biggerHalf([4, 7, 2, 5]);
+biggerHalf([3, 19, 14, 7, 2, 19, 6]);
