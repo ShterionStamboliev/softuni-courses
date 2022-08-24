@@ -3,7 +3,7 @@ function factory(library, orders) {
   let box = [];
 
   for (const info of orders) {
-    const printer = {...info.template}
+    const printer = { ...info.template }
 
     for (const part of info.parts) {
       printer[part] = library[part];
