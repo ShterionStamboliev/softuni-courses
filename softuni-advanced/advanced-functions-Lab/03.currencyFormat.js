@@ -1,5 +1,5 @@
 function createFormatter(separator, symbol, symbolFirst, currencyFormatter) {
-    return formatter = (value) => currencyFormatter(separator, symbol, symbolFirst, value);
+    return formatter = value => currencyFormatter(separator, symbol, symbolFirst, value);
     }
 function currencyFormatter(separator, symbol, symbolFirst, value) {
     let result = Math.trunc(value) + separator;
