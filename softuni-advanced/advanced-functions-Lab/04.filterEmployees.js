@@ -2,7 +2,7 @@ function filterEmployees(data, criteria) {
   const [key, value] = criteria.split("-");
   let index = 0;
 
-  const sortByCriteria = (employee) => {
+  const sortByCriteria = employee => {
     if (employee[key] === value || criteria === "all") {
       console.log(
         `${index++}. ${employee.first_name} ${employee.last_name} - ${employee.email}`
