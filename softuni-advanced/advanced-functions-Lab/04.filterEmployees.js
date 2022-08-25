@@ -1,6 +1,6 @@
 function filterEmployees(data, criteria) {
   const [key, value] = criteria.split("-");
-  let counter = 0;
+  let index = 0;
 
   return JSON.parse(data).forEach((employee) =>
     sortByCriteria.call(employee)
@@ -9,7 +9,7 @@ function filterEmployees(data, criteria) {
   function sortByCriteria() {
     if (this[key] === value || criteria === "all") {
       return console.log(
-        `${counter++}. ${this.first_name} ${this.last_name} - ${this.email}`
+        `${index++}. ${this.first_name} ${this.last_name} - ${this.email}`
       );
     }
   }
