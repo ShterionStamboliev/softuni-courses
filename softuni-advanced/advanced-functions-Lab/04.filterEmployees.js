@@ -10,7 +10,7 @@ function filterEmployees(data, criteria) {
     }
   };
   return JSON.parse(data)
-  .forEach((employee) => sortByCriteria(employee));
+  .forEach(employee => sortByCriteria(employee));
 }
 
 const data = `[{
