@@ -2,17 +2,14 @@ function filterEmployees(data, criteria) {
   const [key, value] = criteria.split("-");
   let index = 0;
 
-  return JSON.parse(data).forEach((employee) =>
-    sortByCriteria.call(employee)
-  );
-
-  function sortByCriteria() {
-    if (this[key] === value || criteria === "all") {
-      return console.log(
-        `${index++}. ${this.first_name} ${this.last_name} - ${this.email}`
+  const sortByCriteria = employee => {
+    if (employee[key] === value || criteria === "all") {
+      console.log(
+        `${index++}. ${employee.first_name} ${employee.last_name} - ${employee.email}`
       );
     }
   }
+  return JSON.parse(data).map(employee => sortByCriteria(employee));
 }
 
 const data = `[{
