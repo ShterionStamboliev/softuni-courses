@@ -1,8 +1,6 @@
 function solution(n) {
-
-    return function(a) {
-        return a + n;
-    }
+    const sum = a => a + n;
+    return sum;
 }
 let add7 = solution(7);
 console.log(add7(2))
