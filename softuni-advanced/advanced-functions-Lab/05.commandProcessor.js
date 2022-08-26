@@ -1,29 +1,17 @@
-function solution() {
+const solution = () => {
     let str = '';
 
-    function append(string) {
-        str += string;
-    }
-
-    function removeStart(n) {
-        str = str.slice(n);
-    }
-
-    function removeEnd(n) {
-        str = str.slice(0, -n);
-    }
-
-    function print() {
-        console.log(str);
-    }
+    const append = text => str += text;
+    const removeStart = n => str = str.slice(n);
+    const removeEnd = n => str = str.slice(0, -n);
+    const print = () => console.log(str);
     return {
         append,
         removeStart,
         removeEnd,
         print
-    };
+    }
 }
-
 let firstZeroTest = solution();
 
 firstZeroTest.append('hello');
