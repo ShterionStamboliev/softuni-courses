@@ -4,4 +4,3 @@ function editElement(text, match, replace) {
    const toReplace = innerText.replace(regMatch, replace);
    text.textContent = toReplace;
 }
-
