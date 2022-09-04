@@ -1,3 +1,13 @@
 function create(words) {
-   console.log('TODO:...');
+   words.forEach(word => {
+      const div = document.createElement('div');
+      let p = document.createElement('p');
+      p.textContent = word;
+      p.style.display = 'none';
+      div.appendChild(p);
+      document.getElementById('content').appendChild(div);
+      div.addEventListener('click', displayOnClick);
+   });
 }
+const displayOnClick = event => 
+   event.target.children[0].style.display = '';
