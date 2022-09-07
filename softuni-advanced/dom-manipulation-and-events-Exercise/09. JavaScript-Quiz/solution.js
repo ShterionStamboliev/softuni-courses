@@ -27,7 +27,7 @@ function solve() {
 
   const results = rightAnswersCount => {
   let res = '';
-    document.querySelector('#results').style.display = 'block'
+    document.getElementById('results').style.display = 'block'
     rightAnswersCount === 3 ? res = 'You are recognized as top JavaScript fan!' : res = `You have ${rightAnswersCount} right answers`;
     document.querySelector('ul li h1').textContent = res;
   }
