@@ -1,18 +1,18 @@
 function heroicInventory(input) {
-  let heroInfo = [];
+  const heroInfo = [];
   for (const info of input) {
     let [name, level, items] = info.split(" / ");
     level = Number(level);
     items = items ? items.split(', ') : [];
     if (items.length !== 0) {
-        let heroObj = {
+        const heroObj = {
             name: name,
             level: level,
             items: items
         };
         heroInfo.push(heroObj)
     } else {
-        let heroObj = {
+        const heroObj = {
             name: name,
             level: level,
             items: [],

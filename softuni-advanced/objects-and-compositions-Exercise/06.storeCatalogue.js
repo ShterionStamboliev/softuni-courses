@@ -4,10 +4,7 @@ function store(input) {
   input.forEach((product) => {
     const [item, price] = product.split(" : ");
     const ch = item[0];
-    if (!obj[ch]) {
-      obj[ch] = {};
-    }
-    obj[ch][item] = price;
+      !obj[ch] ? obj[ch] = {} : obj[ch][item] = price;
   });
   Object.keys(obj)
     .sort((a, b) => a.localeCompare(b))
