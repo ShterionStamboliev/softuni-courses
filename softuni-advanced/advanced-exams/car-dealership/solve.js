@@ -30,14 +30,15 @@ class CarDealership {
                     car.price *= 0.95;
                 } else if (+car.mileage - desiredMileage > 40000) {
                     car.price *= 0.90;
-                } else {
-                    throw Error(`${model} was not found!`)
                 }
                 this.soldCars.push(this.availableCars.splice(i, 1));
                 this.soldPrice = car.price;
                 this.totalIncome += this.soldPrice;
                 this.soldCarsCount++;
                 this.soldCars = this.soldCars.flat();
+                if (car.model === undefined || car.model !== model) {
+                    throw Error(`${model} was not found!`);
+                }
             } 
         });
         return `${model} was sold for ${(this.soldPrice).toFixed(2)}$`;
