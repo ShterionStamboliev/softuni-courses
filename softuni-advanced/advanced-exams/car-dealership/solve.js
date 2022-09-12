@@ -56,13 +56,12 @@ class CarDealership {
     }
 
     salesReport(criteria) {
-        if (criteria === 'horsepower') {
-            this.soldCars.sort((a, b) => b.horsepower - a.horsepower);
-        } else if (criteria === 'model') {
-            this.soldCars.sort((a, b) => a.model.localeCompare(b.model));
-        } else {
-            throw Error('Invalid criteria!');
+        if (criteria === 'horsepower' || criteria === 'model') {
+            this.soldCars.sort((a, b) => b.horsepower - a.horsepower || a.model.localeCompare(b.model)
+        )} else {
+            throw Error('Invalid criteria!')
         }
+    
         const cars = [];
         const user = `-${this.name} has a total income of ${(this.totalIncome).toFixed(2)}`
         const carsSold = `-${this.soldCarsCount} cars sold:`
