@@ -1,6 +1,5 @@
 function cookingByNumbers(startingPoint, ...commands) {
     let num = Number(startingPoint);
-
     const obj = {
         chop: num => num / 2,
         spice: num => num + 1,
@@ -14,7 +13,8 @@ function cookingByNumbers(startingPoint, ...commands) {
     });
 }
 
-    /*
+/*
+
     for (const info of commands) {
 
         switch(info) {
