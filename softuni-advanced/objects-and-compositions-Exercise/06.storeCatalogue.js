@@ -1,5 +1,5 @@
 function store(input) {
-    const obj = {};
+  const obj = {};
 
   input.forEach((product) => {
     const [item, price] = product.split(" : ");
