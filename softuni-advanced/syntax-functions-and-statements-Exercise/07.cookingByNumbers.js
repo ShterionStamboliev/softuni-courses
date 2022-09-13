@@ -1,6 +1,20 @@
 function cookingByNumbers(startingPoint, ...commands) {
     let num = Number(startingPoint);
-    
+
+    const obj = {
+        chop: num => num / 2,
+        spice: num => num + 1,
+        bake: num => num * 3,
+        fillet: num => num *= 0.8,
+        dice: num => Math.sqrt(num),
+    };
+    commands.forEach((_, i) => {
+        num = obj[commands[i]](num);
+        console.log(num);
+    });
+}
+
+    /*
     for (const info of commands) {
 
         switch(info) {
@@ -30,7 +44,7 @@ function cookingByNumbers(startingPoint, ...commands) {
                             break;
         }
     }
-}
+    */
 cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop');
 console.log('***********************************************');
 cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet');
