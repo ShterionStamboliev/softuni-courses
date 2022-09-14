@@ -1,6 +1,6 @@
 function generateReport() {
-    let tableHead = Array.from(document.getElementsByTagName('input'))
-    let employeesData = Array.from(document.querySelectorAll('tbody tr'));
+    let tableHead = [...document.getElementsByTagName('input')]
+    let employeesData = [...document.querySelectorAll('tbody tr')];
     let textOutput = document.getElementById('output');
     let checkBox = [];
     let allEmployees = [];
