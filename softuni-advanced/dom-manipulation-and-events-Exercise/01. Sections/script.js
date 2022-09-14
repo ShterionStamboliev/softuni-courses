@@ -8,6 +8,7 @@ function create(words) {
       document.getElementById('content').appendChild(div);
       div.addEventListener('click', displayOnClick);
    });
-   const displayOnClick = event => 
+   function displayOnClick(event) {
       event.target.children[0].style.display = '';
+   } 
 }

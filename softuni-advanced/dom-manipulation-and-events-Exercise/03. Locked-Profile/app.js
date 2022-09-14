@@ -3,9 +3,9 @@ function lockedProfile() {
     btn.forEach(button => button.addEventListener('click', showMore));
 
     function showMore(event) {
-        let user = event.target.parentElement;
-        let profileType = user.querySelector('input[type=radio][value=lock]').checked;
-        let userInformation = user.querySelector('div');
+        const user = event.target.parentElement;
+        const profileType = user.querySelector('input[type=radio][value=lock]').checked;
+        const userInformation = user.querySelector('div');
         if (event.target.textContent === 'Show more' && profileType === false) {
             userInformation.style.display = 'block';
             event.target.textContent = 'Hide it';

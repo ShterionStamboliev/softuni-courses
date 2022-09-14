@@ -3,10 +3,10 @@ function attachEventsListeners() {
     const hoursBtn = document.getElementById('hoursBtn');
     const minutesBtn = document.getElementById('minutesBtn');
     const secondsBtn = document.getElementById('secondsBtn');
-    const days = document.getElementById('days')
-    const hours = document.getElementById('hours')
-    const minutes = document.getElementById('minutes')
-    const seconds = document.getElementById('seconds')
+    const days = document.getElementById('days');
+    const hours = document.getElementById('hours');
+    const minutes = document.getElementById('minutes');
+    const seconds = document.getElementById('seconds');
 
     daysBtn.addEventListener('click', convert);
     hoursBtn.addEventListener('click', convert);
@@ -38,9 +38,3 @@ function attachEventsListeners() {
         seconds.value = timeField.seconds;
     }
 }
-
-
-// let sec = 86400;
-// let min = sec / 60;
-// let hrs = 22;
-// let min = hrs / 24
