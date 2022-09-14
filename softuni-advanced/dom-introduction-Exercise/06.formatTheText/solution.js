@@ -14,3 +14,4 @@ function solve() {
     p.textContent = input;
     resultField.appendChild(p);
   }
+}
