@@ -1,17 +1,17 @@
 function diagonAlley(matrix) {
-    let row = 0;
-    let col = 0;
+    let leftDiagonalley = 0;
+    let rightDiagonalley = 0;
     let res = [];
     const matrixLen = matrix.length;
 
     for (let i = 0; i < matrixLen; i++) {
-            row += matrix[i][i]
-            col += matrix[i][matrixLen - i - 1]
+        leftDiagonalley += matrix[i][i]
+            rightDiagonalley += matrix[i][matrixLen - i - 1]
         }
-        res.push(row, col);
+        res.push(leftDiagonalley, rightDiagonalley);
         console.log(res.join(' '));
 }
 diagonAlley([
     [20, 40],
-    [10, 60]]
-   )
+    [10, 60]
+])
