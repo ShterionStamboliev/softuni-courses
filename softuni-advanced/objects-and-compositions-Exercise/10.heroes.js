@@ -30,8 +30,11 @@ function hero() {
         }
         return Object.assign(hero, fights(hero));
       };
-      return {mage: mage, fighter: fighter}
+      return {
+        mage: mage, 
+        fighter: fighter
     }
+}
 let create = hero();
 const scorcher = create.mage("Scorcher");
 scorcher.cast("fireball")
