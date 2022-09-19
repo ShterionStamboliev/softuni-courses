@@ -7,9 +7,8 @@ function solve() {
   hireWorkerButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if ([...form].forEach((input) => input.value.trim() === "")) {
-      return;
-    };
+    if ([...form].forEach((input) => input.value.trim() === "")) return;
+    
 
     const obj = {};
     [...form].forEach((x) => {
