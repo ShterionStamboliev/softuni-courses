@@ -9,7 +9,7 @@ function solve() {
 
     if ([...form].forEach((input) => input.value.trim() === "")) {
       return;
-    }
+    };
 
     const obj = {};
     [...form].forEach((x) => {
