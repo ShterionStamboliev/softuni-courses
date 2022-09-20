@@ -1,5 +1,6 @@
 function calories(input) {
     const foodsObj = {};
+
     for (let i = 0; i < input.length; i+=2) {
         const product = input[i];
         const quantity = Number(input[i + 1]);
