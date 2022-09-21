@@ -5,9 +5,10 @@ class Person {
         this.age = age;
         this.email = email;
     }
+
     toString() {
         return `${this.firstName} ${this.lastName} (age: ${this.age}, email: ${this.email})`
     }
 }
-let person = new Person('Anna', 'Simpson', 22, 'anna@yahoo.com');
+let person = new Person('Gabriel', 'Peterson', 24, 'g.p@gmail.com');
 console.log(person.toString());
