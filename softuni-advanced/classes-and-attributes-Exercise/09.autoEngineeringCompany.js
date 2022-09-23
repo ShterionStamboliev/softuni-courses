@@ -13,8 +13,8 @@ function cars(input) {
     });
     for (const [cars, model] of Object.entries(car)) {
         console.log(cars);
-        for (const [a, prod] of Object.entries(model)) {
-            console.log(`###${a} -> ${prod}`);
+        for (const [carModel, carProduction] of Object.entries(model)) {
+            console.log(`###${carModel} -> ${carProduction}`);
         }
     }
 }
