@@ -16,6 +16,7 @@ function heroicInventory(input) {
             name: name,
             level: level,
             items: [],
+
         }
         heroInfo.push(heroObj);
     }
