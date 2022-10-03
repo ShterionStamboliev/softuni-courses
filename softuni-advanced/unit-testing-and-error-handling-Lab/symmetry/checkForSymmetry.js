@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function isSymmetric(arr) {
     if (!Array.isArray(arr)){
         return false; // Non-arrays are non-symmetric
@@ -18,5 +17,4 @@ function isSymmetric(arr) {
     return equal;
 }
 
->>>>>>> 3fdb681f237e87d7885bda775b5bb1c4887a4b8e
 module.exports = { isSymmetric };
