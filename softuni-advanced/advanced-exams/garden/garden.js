@@ -91,7 +91,7 @@ class Garden {
            result += `${p.plantName} (${p.quantity}), `
         });
         return result.trim().replace(/,*$/,'');
-    }
+    };
 }
 const myGarden = new Garden(250)
 console.log(myGarden.addPlant('apple', 20));
