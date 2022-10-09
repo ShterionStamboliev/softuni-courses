@@ -29,9 +29,9 @@ function solve() {
       const buttonEdit = elements('button', 'action-btn edit', 'Edit', li);
       lists.review.appendChild(li);
 
-      inputs.inputTitle.value = '';
-      inputs.inputCategory.value = '';
-      inputs.inputContent.value = '';
+      Object.values(inputs).forEach(input => {
+        input.value = '';
+      });
 
       buttonEdit.addEventListener('click', () => {
         inputs.inputTitle.value = title;
