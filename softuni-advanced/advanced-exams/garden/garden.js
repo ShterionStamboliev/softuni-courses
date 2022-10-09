@@ -77,7 +77,6 @@ class Garden {
     
     generateReport() {
         let result = [`The garden has ${this.spaceAvailable} free space left.\nPlants in the garden: `];
-        let arr = [];
         this.plants.sort((a, b) => a.plantName.localeCompare(b.plantName));
         this.plants.forEach((plant) => {
             result += `${plant.plantName}, `
