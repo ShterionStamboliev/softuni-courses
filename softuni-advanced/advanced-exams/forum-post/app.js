@@ -18,7 +18,9 @@ function solve() {
       const title = inputs.inputTitle.value;
       const category = inputs.inputCategory.value;
       const content = inputs.inputContent.value;
-      if (title === '' || category === '' || content === '') return;
+      for (const info of Object.values(inputs)) {
+        if(info.value === '') return;
+      };
 
       const li = elements('li', 'rpost');
       const article = elements('article', '', '', li);
