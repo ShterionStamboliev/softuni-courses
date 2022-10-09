@@ -15,8 +15,7 @@ class Garden {
             this.spaceAvailable -= spaceRequired;
             return `The ${plantName} has been successfully planted in the garden.`;
         }
-    }
-    
+    };
     ripenPlant(plantName, quantity) {
         quantity = Number(quantity);
         const plantsArr = [];
@@ -46,7 +45,7 @@ class Garden {
         if (quantity <= 0) {
             throw new Error("The quantity cannot be zero or negative.");
         }
-    }
+    };
     harvestPlant(plantName) {
         const plantArr = [];
         for (const plant of this.plants) {
@@ -73,8 +72,7 @@ class Garden {
             }
             return `The ${plantName} has been successfully harvested.`
         }
-    }
-    
+    };
     generateReport() {
         let result = [`The garden has ${this.spaceAvailable} free space left.\nPlants in the garden: `];
         this.plants.sort((a, b) => a.plantName.localeCompare(b.plantName));
@@ -91,7 +89,7 @@ class Garden {
            result += `${p.plantName} (${p.quantity}), `
         });
         return result.trim().replace(/,*$/,'');
-    }
+    };
 }
 const myGarden = new Garden(250)
 console.log(myGarden.addPlant('apple', 20));
