@@ -18,7 +18,7 @@ describe('Tests', () => {
             expect(carService.discount(3, 20)).to.equal('Discount applied! You saved 3$');
             expect(carService.discount(4, 20)).to.equal('Discount applied! You saved 3$');
             expect(carService.discount(5, 20)).to.equal('Discount applied! You saved 3$');
-            expect(carService.discount(3, 20)).to.equal('Discount applied! You saved 3$');
+            expect(carService.discount(6, 20)).to.equal('Discount applied! You saved 3$');
             expect(carService.discount(7, 20)).to.equal('Discount applied! You saved 3$');
             expect(carService.discount(8, 20)).to.equal('Discount applied! You saved 6$');
             expect(carService.discount(9, 20)).to.equal('Discount applied! You saved 6$');
