@@ -32,6 +32,3 @@ function persons() {
         Student
     };
 }
-let person = persons();
-let newPerson = new person.Teacher('Arthur Shelby', 'Birmingham', 'Fook Linda');
-console.log(newPerson.toString());
