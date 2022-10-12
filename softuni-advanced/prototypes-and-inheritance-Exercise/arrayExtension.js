@@ -12,7 +12,7 @@
         return this.reduce((a, b) => a + b, 0);
     };
     Array.prototype.average = function() {
-        return this.reduce((a, b) => a + b, 0) / this.length;
+        return this.sum() / this.length;
     };
 })();
 const arr = [1,2,3,4,5];
