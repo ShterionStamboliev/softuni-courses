@@ -49,7 +49,7 @@ function solve() {
             const container = [...e.target.parentElement.querySelectorAll('.container')];
             for (const item of container) {
                 item.remove();
-            }
+            };
         });
     });
 
