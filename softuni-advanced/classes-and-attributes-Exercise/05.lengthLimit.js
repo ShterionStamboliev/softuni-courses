@@ -8,7 +8,7 @@ class Stringer {
     };
 
     decrease(len) {
-        this.innerLength - len < 0 ? this.innerLength = 0 : this.innerLength-= len;
+        this.innerLength - len < 0 ? this.innerLength = 0 : this.innerLength -= len;
     };
 
     toString() {

@@ -32,8 +32,8 @@ class Company {
             // console.log(key);
             return `Best Department is: ${key}\nAverage salary: ${minSal.toFixed(2)}\n${this.departments[key]
                 .sort((a, b) => b.salary - a.salary || a.name.localeCompare(b.name))
-            .map(n => `${n.name} ${n.salary} ${n.position}`)
-        .join('\n')}`
+                .map(n => `${n.name} ${n.salary} ${n.position}`)
+                .join('\n')}`
         };
     }
 }
