@@ -72,7 +72,7 @@ class VegetableStore {
         });
         result.push(`The owner of the store is ${this.owner}, and the location is ${this.location}.`)
         return result.join('\n');
-    }
+    };
 }
 let vegStore = new VegetableStore("Jerrie Munro", "1463 Pette Kyosheta, Sofia");
 console.log(vegStore.loadingVegetables(["Okra 2.5 3.5", "Beans 10 2.8", "Celery 5.5 2.2", "Celery 0.5 2.5"]));
