@@ -62,7 +62,7 @@ class footballTeam {
     };
     transferWindowResult() {
         let res = [`Players list:`];
-        this.invitedPlayers.forEach(p => res.push(`Player ${p.name}-${p.value}`));
+        this.invitedPlayers.sort((a, b) => a.name.localeCompare(b.name)).forEach(p => res.push(`Player ${p.name}-${p.value}`));
         return res.join('\n');
     }
 }
