@@ -21,7 +21,6 @@ class footballTeam {
                     findPlayer.value = value;
                 }
             }
-            // console.log(name, age, value);
         }
         const res = [];
         this.invitedPlayers.forEach(p => {
@@ -30,9 +29,9 @@ class footballTeam {
         return `You successfully invite ${res.join(', ')}.`
     };
     signContract(selectedPlayer) {
-        let splitted = selectedPlayer.split('/');
-        let name = splitted[0];
-        let offer = +splitted[1];
+        const splitted = selectedPlayer.split('/');
+        const name = splitted[0];
+        const offer = +splitted[1];
         const findPlayer = this.invitedPlayers.find(n => n.name === name);
         if (!findPlayer) {
             throw new Error (`${name} is not invited to the selection list!`);
