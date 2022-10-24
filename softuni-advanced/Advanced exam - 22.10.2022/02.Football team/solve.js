@@ -1,4 +1,6 @@
 class footballTeam {
+    invitedPlayers = [];
+    
     constructor(clubName, country) {
         this.clubName = clubName;
         this.country = country;
