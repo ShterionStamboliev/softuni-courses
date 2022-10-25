@@ -1,5 +1,5 @@
 class ArtGallery {
-    creator = '';
+    creator = '' 
     possibleArticles = {};
     listOfArticles = [];
     guests = [];
