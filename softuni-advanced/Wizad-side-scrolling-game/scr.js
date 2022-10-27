@@ -17,7 +17,7 @@ const game = {
     speed: 2,
     movingMultiplier: 4,
     fireballMultiplier: 5,
-    fireInterval: 1000,
+    fireInterval: 200,
     cloudInterval: 3000,
     bugInterval: 1000,
     bugKillBonus: 2000
