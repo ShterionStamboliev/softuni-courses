@@ -11,6 +11,7 @@ async function loadCommits() {
       throw new Error(`${result.status} ${result.statusText}`);
     }
     const data = await result.json();
+    commitsParent.textContent = "";
     for (const { commit } of data) {
       const li = document.createElement("li");
       li.textContent = `${commit.author.name}: ${commit.message}`;
