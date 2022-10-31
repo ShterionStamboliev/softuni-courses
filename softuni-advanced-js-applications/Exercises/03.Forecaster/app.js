@@ -22,7 +22,6 @@ function attachEvents() {
         const currentConditionsData = await currentConditions.json();
         const threeDayForecast = await fetch(`http://localhost:3030/jsonstore/forecaster/upcoming/${cityCode}`);
         const threeDayData = await threeDayForecast.json();
-        // console.log(threeDayData.forecast);
 
         forecastDiv.style.display = 'block';
         const divForecasts = elements('div', 'forecasts', '', currentDiv);
