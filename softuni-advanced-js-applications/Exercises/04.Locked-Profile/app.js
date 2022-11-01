@@ -4,7 +4,7 @@ async function lockedProfile() {
   const main = document.getElementById("main");
   const profile = document.querySelector(".profile");
   
-  Object.values(data).forEach(({username, email, age}) => {
+  Object.values(data).forEach(({ username, email, age }) => {
         let userValue = profile.querySelector('input[name="user1Username"]');
         let emailVaalue = profile.querySelector('input[name="user1Email"]');
         let ageValue = profile.querySelector('input[name="user1Age"]');
