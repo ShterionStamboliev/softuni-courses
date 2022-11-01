@@ -27,21 +27,21 @@ async function solution() {
             }
         });
     });
-    function elements(type, text, className, ids, parent) {
-        const el = document.createElement(type);
-        if (text) {
-            el.textContent = text;
-        }
-        if (className) {
-            el.setAttribute('class', className);
-        }
-        if (parent) {
-            parent.appendChild(el);
-        }
-        if (ids) {
-            el.id = ids;
-        }
-        return el;
-    }
 }
+function elements(type, text, className, ids, parent) {
+    const el = document.createElement(type);
+    if (text) {
+        el.textContent = text;
+    }
+    if (className) {
+        el.setAttribute('class', className);
+    }
+    if (parent) {
+        parent.appendChild(el);
+    }
+    if (ids) {
+        el.id = ids;
+    }
+    return el;
+};
 solution();
