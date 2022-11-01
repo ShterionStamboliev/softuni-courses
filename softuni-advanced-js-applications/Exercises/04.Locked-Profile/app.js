@@ -5,14 +5,14 @@ async function lockedProfile() {
   const profile = document.querySelector(".profile");
   
   Object.values(data).forEach(({username, email, age}) => {
-        let user = profile.querySelector('input[name="user1Username"]');
-        let emails = profile.querySelector('input[name="user1Email"]');
-        let ages = profile.querySelector('input[name="user1Age"]');
-        user.value = username;
-        emails.value = email;
-        emails.type = 'email';
-        ages.value = age;
-        ages.type = 'email';
+        let userValue = profile.querySelector('input[name="user1Username"]');
+        let emailVaalue = profile.querySelector('input[name="user1Email"]');
+        let ageValue = profile.querySelector('input[name="user1Age"]');
+        userValue.value = username;
+        emailVaalue.value = email;
+        emailVaalue.type = 'email';
+        ageValue.value = age;
+        ageValue.type = 'email';
         main.appendChild(profile.cloneNode(true));
     });
       const hideIt = [...main.querySelectorAll('div[class="user1Username"]')];
