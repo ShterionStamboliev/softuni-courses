@@ -15,9 +15,7 @@ async function attachEvents() {
             },
             body: JSON.stringify({ person: person.name.value, phone: person.phone.value })
         });
-        Object.values(person).forEach(n => {
-            n.value = '';
-        });
+        Object.values(person).forEach(n => n.value = '');
         onLoad();
     });
     async function onLoad() {
