@@ -3,18 +3,21 @@ async function attachEvents() {
     
     document.getElementById('btnLoad').addEventListener('click', onLoad);
     document.getElementById('btnCreate').addEventListener('click', async () => {
-        const personName = document.getElementById('person');
-        const personPhone = document.getElementById('phone');
-        if (!personName.value || !personPhone.value) return;
+        const person = {
+            name: document.getElementById('person'),
+            phone: document.getElementById('phone')
+        }
+        if (!person.name.value || !person.phone.value) return;
         await fetch('http://localhost:3030/jsonstore/phonebook', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({ person: personName.value, phone: personPhone.value })
+            body: JSON.stringify({ person: person.name.value, phone: person.phone.value })
         });
-        personName.value = '';
-        personPhone.value = '';
+        Object.values(person).forEach(n => {
+            n.value = '';
+        });
         onLoad();
     });
     async function onLoad() {
