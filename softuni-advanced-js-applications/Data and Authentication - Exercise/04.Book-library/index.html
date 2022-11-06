@@ -17,7 +17,7 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tableBody">
             <tr>
                 <td>Harry Poter</td>
                 <td>J. K. Rowling</td>
@@ -37,13 +37,24 @@
         </tbody>
     </table>
 
-    <form>
+    <form id="formSubmit">
         <h3>FORM</h3>
+        <input type="hidden" name="id">
         <label>TITLE</label>
         <input type="text" name="title" placeholder="Title...">
         <label>AUTHOR</label>
         <input type="text" name="author" placeholder="Author...">
-        <button>Submit</button>
+        <button id="submitBtn">Submit</button>
+    </form>
+
+    <form id="formSave" style="display: none;">
+        <h3>Edit FORM</h3>
+        <input type="hidden" name="id">
+        <label>TITLE</label>
+        <input type="text" name="title" placeholder="Title...">
+        <label>AUTHOR</label>
+        <input type="text" name="author" placeholder="Author...">
+        <button id="saveBtn">Save</button>
     </form>
     <script src="./app.js"></script>
 </body>
