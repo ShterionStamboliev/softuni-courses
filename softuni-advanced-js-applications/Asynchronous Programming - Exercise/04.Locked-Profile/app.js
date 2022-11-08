@@ -6,11 +6,11 @@ async function lockedProfile() {
   
   Object.values(data).forEach(({ username, email, age }) => {
         let userValue = profile.querySelector('input[name="user1Username"]');
-        let emailVaalue = profile.querySelector('input[name="user1Email"]');
+        let emailValue = profile.querySelector('input[name="user1Email"]');
         let ageValue = profile.querySelector('input[name="user1Age"]');
         userValue.value = username;
-        emailVaalue.value = email;
-        emailVaalue.type = 'email';
+        emailValue.value = email;
+        emailValue.type = 'email';
         ageValue.value = age;
         ageValue.type = 'email';
         main.appendChild(profile.cloneNode(true));

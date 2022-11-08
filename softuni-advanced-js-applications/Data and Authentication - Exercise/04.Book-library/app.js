@@ -9,7 +9,7 @@ document.getElementById('submitBtn').addEventListener('click', submitBook);
 document.getElementById('saveBtn').addEventListener('click', onSave);
 tbody.addEventListener('click', buttonActions);
 
-
+tbody.innerHTML = '';
 loadBooks();
 
 async function loadBooks() {
@@ -17,24 +17,6 @@ async function loadBooks() {
     const bookData = await books.json();
     const res = Object.entries(bookData).map(([id, book]) => createBook(id, book));
     tbody.replaceChildren(...res);
-}
-
-function createBook(id, book) {
-        const tr = element('tr', '', id, tbody);
-        element('td', book.title, '', tr);
-        element('td', book.author, '', tr);
-        const td = element('td', '', '', tr);
-        element('button', 'Edit', '', td);
-        element('button', 'Delete', '', td);
-        return tr;
-}
-
-function element(type, text, id, parent) {
-    const el = document.createElement(type);
-    text ? el.textContent = text : '';
-    id ? el.setAttribute('id', id) : '';
-    parent ? parent.appendChild(el) : '';
-    return el;
 }
 
 async function submitBook(ev) {
@@ -49,7 +31,6 @@ async function submitBook(ev) {
         body: JSON.stringify({ author: newData.get('author'), title: newData.get('title') })
     });
     submitForm.reset();
-    // loadBooks();
 }
 
 function buttonActions(ev) {
@@ -78,6 +59,7 @@ async function onEdit(e) {
     formSave.querySelector('input[name="id"]').value = elementId;
     formSave.querySelector('input[name="author"]').value = bookData.author;
     formSave.querySelector('input[name="title"]').value = bookData.title;
+    submitForm.reset();
 }
 
 async function onSave(e) {
@@ -93,6 +75,23 @@ async function onSave(e) {
     });
     submitForm.style.display = 'block';
     saveForm.style.display = 'none';
-    // loadBooks();
     submitForm.reset();
+}
+
+function createBook(id, book) {
+    const tr = element('tr', '', id, tbody);
+    element('td', book.title, '', tr);
+    element('td', book.author, '', tr);
+    const td = element('td', '', '', tr);
+    element('button', 'Edit', '', td);
+    element('button', 'Delete', '', td);
+    return tr;
+}
+
+function element(type, text, id, parent) {
+    const el = document.createElement(type);
+    text ? el.textContent = text : '';
+    id ? el.setAttribute('id', id) : '';
+    parent ? parent.appendChild(el) : '';
+    return el;
 }
