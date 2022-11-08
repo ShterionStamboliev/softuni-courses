@@ -40,7 +40,7 @@ document.getElementById('submit').addEventListener('click', async e => {
             lastName: formData.get('lastName'),
             facultyNumber: formData.get('facultyNumber'),
             grade: formData.get('grade')
-        })
+        });
     });
     Object.values(formInputs).forEach(n => n.value = '');
     tbody.replaceChildren();
