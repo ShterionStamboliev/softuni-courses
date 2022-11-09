@@ -14,27 +14,28 @@ form.querySelector('button[class="cancel"]').addEventListener('click', clearFiel
 
 export async function showHomepage(e) {
     e?.preventDefault();
-    const response = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts/');
+    const response = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts');
     const data = await response.json();
-    const dataFragment = new DocumentFragment();
-    console.log(dataFragment);
-    Object.values(data).forEach(el => {
-        // TO DO TOMORROW....
-        const divWrapper = createElements('div', 'topic-name-wrapper');
-        const divTopicName = createElements('div', 'topic-name', divWrapper);
-        const a = createElements('a', 'normal', divTopicName);
-        a.href = "#";
-        a.id = el._id;
-        createElements('h2', '', a, el.title);
-        const divColumns = createElements('div', 'columns', divTopicName);
-        const div = createElements('div', '', divColumns);
-        const p1 = createElements('p', '', div, 'Date:');
-        createElements('time', '', p1, el.date);
-        const divNickName = createElements('div', 'nick-name', div);
-        const p2 = createElements('p', '', divNickName, 'Username:');
-        createElements('span', '', p2, el.username);
-    });
-    main.replaceChildren(section);
+    topicContainer.replaceChildren(...Object.values(data).map(post => {
+        const divWrapper = document.createElement('div');
+        divWrapper.className = 'topic-name-wrapper';
+        divWrapper.innerHTML = 
+        `<div class="topic-name">
+        <a href="#" class="normal" id="${post._id}">
+            <h2>${post.title}</h2>
+        </a>
+        <div class="columns">
+            <div>
+                <p>Date: <time>${post.date}</time></p>
+                <div class="nick-name">
+                    <p>Username: <span>${post.username}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>`
+    return divWrapper;
+ }));
+ main.replaceChildren(section);
 }
 
 async function createPost(e) {
