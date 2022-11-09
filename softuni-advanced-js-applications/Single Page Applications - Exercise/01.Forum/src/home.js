@@ -1,8 +1,9 @@
 import { showComments } from "./details.js";
-
+import { elements } from "./factory.js";
 
 const section = document.getElementById('homepage');
 section.querySelector('div.topic-title').addEventListener('click', showComments);
+
 const main = document.querySelector('main');
 const form = document.querySelector('form');
 const topicContainer = section.querySelector('div.topic-container');
@@ -16,26 +17,8 @@ export async function showHomepage(e) {
     e?.preventDefault();
     const response = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts');
     const data = await response.json();
-    topicContainer.replaceChildren(...Object.values(data).map(post => {
-        const divWrapper = document.createElement('div');
-        divWrapper.className = 'topic-name-wrapper';
-        divWrapper.innerHTML = 
-        `<div class="topic-name">
-        <a href="#" class="normal" id="${post._id}">
-            <h2>${post.title}</h2>
-        </a>
-        <div class="columns">
-            <div>
-                <p>Date: <time>${post.date}</time></p>
-                <div class="nick-name">
-                    <p>Username: <span>${post.username}</span></p>
-                </div>
-            </div>
-        </div>
-    </div>`
-    return divWrapper;
- }));
- main.replaceChildren(section);
+    topicContainer.replaceChildren(...Object.values(data).map(elements));
+    main.replaceChildren(section);
 }
 
 async function createPost(e) {
@@ -72,12 +55,4 @@ async function createPost(e) {
 function clearFields(e) {
     e.preventDefault();
     form.reset();
-}
-
-function createElements(type, className, parent, text) {
-    const el = createElements(type);
-    className ? el.setAttribute('class', className) : '';
-    parent ? parent.appendChild(el) : '';
-    text ? el.textContent = text : '';
-    return el;
 }
