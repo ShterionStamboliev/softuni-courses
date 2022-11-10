@@ -1,13 +1,13 @@
 import { showComments } from "./details.js";
 import { elements } from "./factory.js";
 
-const section = document.getElementById('homepage');
-section.querySelector('div.topic-title').addEventListener('click', showComments);
-
-const main = document.querySelector('main');
+const main = document.getElementById('main');
 const form = document.querySelector('form');
+
+const section = document.getElementById('homepage');
 const topicContainer = section.querySelector('div.topic-container');
 
+section.querySelector('div.topic-title').addEventListener('click', showComments);
 section.remove();
 
 form.addEventListener('submit', createPost);
