@@ -1,39 +1,41 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { getPets } from '../api/pets.js';
+import { editPets, getPetsById } from '../api/pets.js';
 
-const createTemplate = (onSubmit) => html`
-<section id="createPage">
-    <form class="createForm" @submit=${onSubmit}>
-        <img src="./images/cat-create.jpg">
+const editTemplate = (pet, onSubmit) => html`
+<section id="editPage">
+    <form class="editForm" @submit=${onSubmit}>
+        <img src="./images/editpage-dog.jpg">
         <div>
-            <h2>Create PetPal</h2>
+            <h2>Edit PetPal</h2>
             <div class="name">
                 <label for="name">Name:</label>
-                <input name="name" id="name" type="text" placeholder="Max">
+                <input name="name" id="name" type="text" value=${pet.name} >
             </div>
             <div class="breed">
                 <label for="breed">Breed:</label>
-                <input name="breed" id="breed" type="text" placeholder="Shiba Inu">
+                <input name="breed" id="breed" type="text" value=${pet.breed}>
             </div>
             <div class="Age">
                 <label for="age">Age:</label>
-                <input name="age" id="age" type="text" placeholder="2 years">
+                <input name="age" id="age" type="text" value=${pet.age}>
             </div>
             <div class="weight">
                 <label for="weight">Weight:</label>
-                <input name="weight" id="weight" type="text" placeholder="5kg">
+                <input name="weight" id="weight" type="text" value=${pet.weight}>
             </div>
             <div class="image">
                 <label for="image">Image:</label>
-                <input name="image" id="image" type="text" placeholder="./image/dog.jpeg">
+                <input name="image" id="image" type="text" value=${pet.image}>
             </div>
-            <button class="btn" type="submit">Create Pet</button>
+            <button class="btn" type="submit">Edit Pet</button>
         </div>
     </form>
 </section>`;
 
-export async function createPage(ctx) {
-    ctx.render(createTemplate(onSubmit));
+export async function editPage(ctx) {
+    const pet = await getPetsById(ctx.params.id);
+
+    ctx.render(editTemplate(pet, onSubmit));
 
     async function onSubmit(e) {
         e.preventDefault();
@@ -48,8 +50,8 @@ export async function createPage(ctx) {
         if (!pet.name || !pet.breed || !pet.age || !pet.weight || !pet.image) {
            return alert('All fields are required!');
         }
-        await getPets(pet);
+        await editPets(ctx.params.id, pet);
         e.target.reset();
-        ctx.page.redirect('/');
+        ctx.page.redirect('/details/' + ctx.params.id);
     }
 }

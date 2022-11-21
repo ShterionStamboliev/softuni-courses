@@ -554,7 +554,7 @@ describe('E2E tests', function () {
   });
 
   describe('BONUS : Donate functionality  [ 15 Points ]', async () => {
-    it('Donate button is NOT visible for guest users [ 2.5 Points ]', async () => {
+    it.only('Donate button is NOT visible for guest users [ 2.5 Points ]', async () => {
       await page.goto(host);
       await page.waitForTimeout(interval);
 
@@ -574,7 +574,7 @@ describe('E2E tests', function () {
       expect(await page.isVisible('.donate')).to.be.false;
     });
 
-    it('Donate button is visible for the non-creator user [ 2.5 Points ]', async () => {
+    it.only('Donate button is visible for the non-creator user [ 2.5 Points ]', async () => {
       // Login user
       const user = mockData.users[0];
       const data = mockData.catalog[2];
@@ -604,7 +604,7 @@ describe('E2E tests', function () {
       expect(await page.isVisible('.donate')).to.be.true;
     });
 
-    it('Donate button is NOT visible for the creator [ 2.5 Points ]', async () => {
+    it.only('Donate button is NOT visible for the creator [ 2.5 Points ]', async () => {
       // Login user
       const user = mockData.users[0];
       const data = mockData.catalog[0];
@@ -633,7 +633,7 @@ describe('E2E tests', function () {
       expect(await page.isVisible('.donate')).to.be.false;
     });
 
-    it('Donate button should be hidden(not visible) after a click on it [ 2.5 Points ]', async () => {
+    it.only('Donate button should be hidden(not visible) after a click on it [ 2.5 Points ]', async () => {
       // Login user
       const user = mockData.users[0];
       const data = mockData.catalog[2];
@@ -675,7 +675,7 @@ describe('E2E tests', function () {
       expect(await page.isVisible('.donate')).to.be.false;
     });
 
-    it('Donate button should increase total donation by 100 after a click on it [ 5 Points ]', async () => {
+    it.only('Donate button should increase total donation by 100 after a click on it [ 5 Points ]', async () => {
       // Login user
       const user = mockData.users[0];
       const data = mockData.catalog[2];

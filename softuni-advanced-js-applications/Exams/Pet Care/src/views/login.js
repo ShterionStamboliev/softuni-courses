@@ -1,11 +1,9 @@
-import { html, render } from "../../node_modules/lit-html/lit-html.js";
-import { login, userNav } from "../api.js";
-import { showHome } from "./home.js";
+import { html } from "../../node_modules/lit-html/lit-html.js";
+import { login } from "../api/users.js";
+import { updateNav } from "../api/utility.js";
 
-const root = document.getElementById('content');
-
-export async function loginPage() {
-    const form = html `<section id="loginPage">
+const loginTemplate = (onSubmit) => html`
+<section id="loginPage">
     <form class="loginForm" @submit=${onSubmit}>
         <img src="./images/logo.png" alt="logo" />
         <h2>Login</h2>
@@ -23,24 +21,25 @@ export async function loginPage() {
         <button class="btn" type="submit">Login</button>
 
         <p class="field">
-            <span>If you don't have profile click <a href="#">here</a></span>
+            <span>If you don't have profile click <a href="/register">here</a></span>
         </p>
     </form>
 </section>`;
-render(form, root);
-}
 
-async function onSubmit(e) {
-    e.preventDefault();
-    const form = new FormData(e.target);
-    const email = form.get('email');
-    const password = form.get('password');
-    if(!email || !password) {
-        alert('All fields are required!');
-        throw new Error();
+
+export function loginPage(ctx) {
+    ctx.render(loginTemplate(onSubmit));
+
+    async function onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        if (!email || !password) {
+            return alert('All fields are required!');
+        }
+        await login(email, password);
+        updateNav();
+        ctx.page.redirect('/');
     }
-    await login(email, password);
-    e.target.reset();
-    userNav();
-    showHome();
 }

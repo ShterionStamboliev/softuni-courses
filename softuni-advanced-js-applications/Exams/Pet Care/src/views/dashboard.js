@@ -1,27 +1,30 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { getAllPets } from "../api/pets.js";
+import { html } from "../../node_modules/lit-html/lit-html.js";
 
-const root = document.getElementById('content');
+const dashboardTemplate = (pets) => html`
+<section id="dashboard">
+    <h2 class="dashboard-title">Services for every animal</h2>
+    <div class="animals-dashboard">
+        ${pets.length === 0
+        ? html`<div>
+            <p class="no-pets">No pets in dashboard</p>
+        </div>` : pets.map(petCard)}
+    </div>
+</section>`;
 
-export async function showDashboard() {
-    const data = await fetch('http://localhost:3030/data/pets?sortBy=_createdOn%20desc&distinct=name');
-    const res = await data.json();
-        const div = html`
-        <section id="dashboard">
-            <h2 class="dashboard-title">Services for every animal</h2>
-            <div class="animals-dashboard">
-                ${res.length === 0 ? html` <div>
-                    <p class="no-pets">No pets in dashboard</p>
-                </div>` : res.map(e => html`<div class="animals-board">
-                    <article class="service-img">
-                        <img class="animal-image-cover" src="${e.image}">
-                    </article>
-                    <h2 class="name">${e.name}</h2>
-                    <h3 class="breed">${e.breed}</h3>
-                    <div class="action">
-                        <a class="btn" href="/details/${e._id}">Details</a>
-                    </div>
-                </div>`)}
-            </div>
-        </section>`;
-        render(div, root);
+const petCard = pet => html`
+<div class="animals-board">
+    <article class="service-img">
+        <img class="animal-image-cover" src=${pet.image}>
+    </article>
+    <h2 class="name">${pet.name}</h2>
+    <h3 class="breed">${pet.breed}</h3>
+    <div class="action">
+        <a class="btn" href="/details/${pet._id}">Details</a>
+    </div>
+</div>`;
+
+export async function dashboardPage(ctx) {
+    const pets = await getAllPets();
+    ctx.render(dashboardTemplate(pets));
 }
