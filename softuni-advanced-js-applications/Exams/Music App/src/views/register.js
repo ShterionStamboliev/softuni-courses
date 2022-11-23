@@ -1,6 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import { register } from "../api/users.js";
-import { updateUserNav } from "../api/utility.js";
 
 const registerTemplate = (onSubmit) => html`
 <section id="registerPage">
