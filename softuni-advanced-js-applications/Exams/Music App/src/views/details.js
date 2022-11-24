@@ -27,7 +27,6 @@ const detailsTemplate = (album, isLogged, isOwner, onDelete) => html`
     </div>
 </section>`;
 
-
 export async function detailsPage(ctx) {
     const album = await getAlbumById(ctx.params.id);
     const user = getUserData();
