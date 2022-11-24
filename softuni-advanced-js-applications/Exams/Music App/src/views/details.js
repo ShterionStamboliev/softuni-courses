@@ -1,8 +1,8 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
-import { getAlbumById } from "../api/albums.js";
+import { deleteAlbum, getAlbumById } from "../api/albums.js";
 import { getUserData } from "../api/utility.js";
 
-const detailsTemplate = (album, isLogged, isOwner) => html`
+const detailsTemplate = (album, isLogged, isOwner, onDelete) => html`
 <section id="detailsPage">
     <div class="wrapper">
         <div class="albumCover">
@@ -20,8 +20,8 @@ const detailsTemplate = (album, isLogged, isOwner) => html`
             </div>
             ${isLogged && isOwner ? html`
             <div class="actionBtn">
-                <a href="#" class="edit">Edit</a>
-                <a href="#" class="remove">Delete</a>
+                <a href="/edit/${album._id}" class="edit">Edit</a>
+                <a href="javascript:void(0)" @click=${onDelete} class="remove">Delete</a>
             </div>` : ''}
         </div>
     </div>
@@ -33,5 +33,13 @@ export async function detailsPage(ctx) {
     const user = getUserData();
     const isLogged = user?._id !== undefined;
     const isOwner = user?._id === album._ownerId;
-    ctx.render(detailsTemplate(album, isLogged, isOwner));
+    ctx.render(detailsTemplate(album, isLogged, isOwner, onDelete));
+
+    async function onDelete() {
+        const dialog = confirm('Are you sure you want to delete this album?')
+        if (dialog) {
+            await deleteAlbum(ctx.params.id);
+            ctx.page.redirect('/catalog')
+        }
+    }
 }

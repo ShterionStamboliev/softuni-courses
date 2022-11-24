@@ -5,6 +5,7 @@ import { updateUserNav } from "./src/api/utility.js";
 import { catalogPage } from "./src/views/catalog.js";
 import { createPage } from "./src/views/create.js";
 import { detailsPage } from "./src/views/details.js";
+import { editPage } from "./src/views/edit.js";
 import { homePage } from "./src/views/home.js";
 import { loginPage } from "./src/views/login.js";
 import { registerPage } from "./src/views/register.js";
@@ -21,6 +22,7 @@ page('/logout', logout);
 page('/catalog', catalogPage);
 page('/create', createPage);
 page('/details/:id', detailsPage);
+page('/edit/:id', editPage);
 page.start();
 
 

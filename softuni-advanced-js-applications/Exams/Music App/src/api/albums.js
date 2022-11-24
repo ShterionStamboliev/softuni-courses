@@ -1,4 +1,4 @@
-import { get } from "./api.js";
+import { del, get, put } from "./api.js";
 
 
 export async function getAllAlbums() {
@@ -7,4 +7,12 @@ export async function getAllAlbums() {
 
 export async function getAlbumById(id) {
     return get('/data/albums/' + id);
+}
+
+export async function deleteAlbum(id) {
+    return del('/data/albums/' + id);
+}
+
+export async function editAlbum(id, data) {
+    return put('/data/albums/' + id, data)
 }
