@@ -10,7 +10,6 @@ const detailsTemplate = (album, isLogged, isOwner, onDelete) => html`
         </div>
         <div class="albumInfo">
             <div class="albumText">
-
                 <h1>Name: ${album.name}</h1>
                 <h3>Artist: ${album.artist}</h3>
                 <h4>Genre: ${album.genre}</h4>
