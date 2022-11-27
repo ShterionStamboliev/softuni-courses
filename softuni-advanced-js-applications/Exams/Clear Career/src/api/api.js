@@ -11,7 +11,7 @@ export async function request(url, method, data) {
     if (data != undefined) {
         options.headers['Content-type'] = 'application/json';
         options.body = JSON.stringify(data);
-    }
+    };
 
     const user = getUserData();
     if (user) {
@@ -24,10 +24,11 @@ export async function request(url, method, data) {
             if (response.status === 403) {
                 clearUserData();
             }
-            const error = await response.json();
-            throw new Error(error.message);
+        const error = await response.json();
+        throw new Error(error.message);
         }
-        if (response.status === 204) {
+
+        if (response.status == 204) {
             return response;
         } else {
             return response.json();
@@ -51,5 +52,5 @@ export async function put(url, data) {
 }
 
 export async function del(url) {
-    return request(url, 'DELETE')
+    return request(url, 'DELETE');
 }
