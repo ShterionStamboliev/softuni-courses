@@ -9,6 +9,7 @@ import { editPage } from './src/views/edit.js';
 import { homePage } from './src/views/home.js';
 import { loginPage } from './src/views/login.js';
 import { registerPage } from './src/views/register.js';
+import { searchPage } from './src/views/search.js';
 
 const root = document.querySelector('main');
 
@@ -23,6 +24,7 @@ page('/add', createPage);
 page('/logout', logout);
 page('/details/:id', detailsPage);
 page('/edit/:id', editPage);
+page('/search', searchPage);
 page.start();
 
 function decorator(ctx, next) {

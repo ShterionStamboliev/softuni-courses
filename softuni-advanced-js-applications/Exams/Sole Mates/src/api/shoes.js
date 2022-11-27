@@ -15,3 +15,7 @@ export async function deleteShoe(id) {
 export async function editShoe(id, data) {
     return put('/data/shoes/' + id, data);
 }
+
+export async function getShoeCollection(query) {
+    return get(`/data/shoes?where=brand%20LIKE%20%22${query}%22`);
+}
