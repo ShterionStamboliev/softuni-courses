@@ -3,6 +3,9 @@ import { deletePost, getPost } from "../api/data.js";
 import { getUserData } from "../api/utlity.js";
 
 const detailsTemplate = (post, isOwner, isLogged, onDelete) => html`
+<section id="details-page">
+<h1 class="title">Post Details</h1>
+<div id="container">
 <div id="details">
     <div class="image-wrapper">
         <img src=${post.imageUrl} alt="Material Image" class="post-image">
@@ -14,16 +17,16 @@ const detailsTemplate = (post, isOwner, isLogged, onDelete) => html`
         <p class="post-number">Phone number: ${post.phone}</p>
         <p class="donate-Item">Donate Materials: 0</p>
 
-        <!--Edit and Delete are only for creator-->
         ${isLogged && isOwner ? 
         html `<div class="btns">
             <a href="/edit/${post._id}" class="edit-btn btn">Edit</a>
             <a href="javascript:void(0)" @click=${onDelete} class="delete-btn btn">Delete</a>
-            <!--Bonus - Only for logged-in users ( not authors )-->
         </div>` : isLogged && !isOwner ? 
         html `<a href="#" class="donate-btn btn">Donate</a>` : ''}
     </div>
-</div>`;
+</div>
+</div>
+</section>`
 
 export async function detailsPage(ctx) {
     const user = getUserData();
