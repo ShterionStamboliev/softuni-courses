@@ -11,7 +11,7 @@ export async function login(email, password) {
   };
   setUserData(userData);
   updateUserNav();
-}
+};
 
 export async function register(email, password) {
   const user = await post("/users/register", { email, password });
@@ -22,11 +22,11 @@ export async function register(email, password) {
   };
   setUserData(userData);
   updateUserNav();
-}
+};
 
 export function logout() {
   get("/users/logout");
   clearUserData();
   updateUserNav();
   page.redirect('/');
-}
+};
