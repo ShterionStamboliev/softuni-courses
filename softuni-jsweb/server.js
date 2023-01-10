@@ -16,6 +16,8 @@ const server = http.createServer((req, res) => {
         case '/gato':
             res.write('El gato senor');
             break;
+        case '/more-cats':
+            res.write('More furries for you');
             default:
     }
     res.end();
