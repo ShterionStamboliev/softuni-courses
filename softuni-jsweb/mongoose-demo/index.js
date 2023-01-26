@@ -8,7 +8,7 @@ const catSchema = new mongoose.Schema({
 
 catSchema.methods.sayHi = function() {
     console.log(`I am ${this.name}, and I am ${this.breed} cat`);
-}
+};
 
 catSchema.virtual('info').get(function() {
     return `${this.name} - ${this.breed} - ${this.age}`;
