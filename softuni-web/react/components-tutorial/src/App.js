@@ -1,17 +1,17 @@
-import logo from './logo.svg';
+import Logo from './components/Logo';
 import './App.css';
 import React from 'react';
 import Header from './components/Header';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Header title="Hello, React"/>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <Logo />
+                <Header title="React Demo" />
+            </header>
+        </div>
+    );
 }
 
 export default App;
