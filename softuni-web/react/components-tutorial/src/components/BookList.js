@@ -1,20 +1,16 @@
-import Book from "./Book";
+import Book from "./Book"
 
-const BookList = () => {
+const BookList = (props) => {
     return (
-        <ul>
+        <div>
+            <h1>Book library</h1>
             <Book
-                title="IT"
-                author="R.F.DD"
-                price="25.55"
+                title={props.books[0].title}
+                year={props.books[0].year}
+                cast={props.books[0].cast}
             />
-            <Book
-                title="Potter"
-                author="ASD"
-                price="22.22"
-            />
-        </ul>
-    )
+        </div>
+    );
 };
 
 export default BookList;

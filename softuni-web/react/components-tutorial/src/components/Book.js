@@ -1,10 +1,13 @@
 const Book = (props) => {
     return (
-        <li> className="book"
-            <div>Book title: {props.title}</div>
-            <div>Book author: {props.author}</div>
-            <div>Book price: {props.price}</div>
-        </li>
+        <article>
+            <h3>{props.title}</h3>
+            <p>{props.year}</p>
+            <ul>
+                <li>{props.cast[0]}</li>
+                <li>{props.cast[1]}</li>
+            </ul>
+        </article>
     )
 };
 
