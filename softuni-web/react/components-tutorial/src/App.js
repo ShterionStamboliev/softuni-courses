@@ -1,5 +1,6 @@
 import './App.css';
 import BookList from './components/BookList';
+import Counter from './components/Counter';
 import Timer from './components/Timer';
 
 function App() {
@@ -11,9 +12,8 @@ function App() {
     return (
         <div className='App'>
             <h1>React timer</h1>
-            <Timer start={5}/>
+            <Counter canReset />
 
-            <BookList books={books} />
         </div>
     );
 }
