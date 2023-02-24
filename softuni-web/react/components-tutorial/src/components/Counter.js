@@ -1,59 +1,32 @@
 import { useState } from "react";
+import { setResetStyle, setStyleBlack, setStyleGreen, setStyleRed } from './Styles';
 
-const getTitle = (count) => {
-    switch (count) {
-        case 1:
-            return 'First Blood';
-        case 2:
-            return 'Double Kill';
-        case 3:
-            return 'Tripple Kill';
-        case 4:
-            return 'Ultra Kill - UNSTOPPABLE';
-        case 5:
-            return 'GODLIKE';
-        default:
-            return 'Counter';
-    }
-};
+function Counter() {
+    const [count, setCount] = useState(0);
 
-const Counter = (props) => {
-    const [counter, setCounter] = useState(0);
-
-    const incrementCounter = (e) => {
-        setCounter(oldCount => oldCount + 1);
+    const incrementCount = () => {
+        setCount(oldCount => oldCount + 1);
     };
 
-    const decrementCounter = (e) => {
-        setCounter(oldCount => oldCount - 1);
+    const decrementCount = () => {
+        setCount(oldCount => oldCount - 1);
     };
 
-    const clearCounter = () => {
-        setCounter(0);
+    const resetCount = () => {
+        setCount(0);
     };
-
-    // let title = 'Counter';
-    // if (counter == 1) {
-    //     title = 'First blood';
-    // } else if (counter == 2) {
-    //     title = 'Double kill'
-    // }
 
     return (
         <div>
-            <p style={{fontSize: Math.max(counter, 1)  + '2px'}}>
-                {counter > 5 
-                ? 'GIGA CHAD' 
-                : getTitle(counter)}
-                : {counter}</p>
+            <p>You clicked {count} times</p>
 
-            <button onClick={decrementCounter}>-</button>
+            <button style={count > 0 ? setStyleBlack() : setStyleGreen()} onClick={() => incrementCount()}>Increment count</button>
 
-            {counter < 10 ? <button onClick={incrementCounter}>+</button> : null}
+            <button style={count > 0 ? setStyleRed() : setStyleBlack()} onClick={() => decrementCount()}>Decrement count</button>
 
-            {props.canReset && <button onClick={clearCounter}>Clear counter</button>}
+            <button style={count > 9 ? setResetStyle() : setStyleBlack()} onClick={() => resetCount()}>Reset count</button>
         </div>
     );
-}
+};
 
 export default Counter;
