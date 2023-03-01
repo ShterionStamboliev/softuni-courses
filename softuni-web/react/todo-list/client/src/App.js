@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
-import Table from "./components/Table";
+import TodoList from "./components/TodoList";
 
 function App() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3030/jsonstore/todos`)
+      .then(res => res.json())
+      .then(data => {
+        setTodos(Object.values(data));
+      });
+  }, []);
+
   return (
     <div>
       <Header />
@@ -21,7 +32,7 @@ function App() {
 
             {/* <Loading /> */}
 
-            <Table />
+            <TodoList todos={todos}/>
           </div>
         </section>
       </main>
