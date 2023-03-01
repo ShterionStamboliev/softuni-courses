@@ -11,7 +11,8 @@ function App() {
     fetch(`http://localhost:3030/jsonstore/todos`)
       .then(res => res.json())
       .then(data => {
-        setTodos(Object.values(data));
+        const values = Object.keys(data).map(id => ({id, ...data[id]}))
+        setTodos(values);
       });
   }, []);
 
