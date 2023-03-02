@@ -11,7 +11,7 @@ const TodoList = ({ todos, todoStatus }) => {
             <tbody>
 
                 {todos.map(todo => (
-                    <tr className={todo.isCompleted ? 'is-completed' : 'todo'}>
+                    <tr key={todo.id} className={todo.isCompleted ? 'is-completed' : 'todo'}>
                         <td>{todo.text}</td>
                         <td>{todo.isCompleted ? 'Complete' : 'Not complete'}</td>
                         <td className="todo-action">

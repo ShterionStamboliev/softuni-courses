@@ -10,14 +10,15 @@ function App() {
   useEffect(() => {
     fetch(`http://localhost:3030/jsonstore/todos`)
       .then(res => res.json())
-      .then(data => { 
+      .then(data => {
+
         const keys = Object.keys(data).map(id => ({id, ...data[id]}));
         setTodos(keys);
       });
   }, []);
 
   const todoStatus = id => {
-    console.log(id);
+    setTodos(state => state.map(todo => todo.id === id ? ({ ...todo, isCompleted: !todo.isCompleted}) : todo));
   }
 
   return (
