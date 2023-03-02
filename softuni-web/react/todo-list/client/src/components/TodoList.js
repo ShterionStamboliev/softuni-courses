@@ -1,4 +1,4 @@
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, todoStatus }) => {
     return (
         <table className="table">
             <thead>
@@ -15,7 +15,7 @@ const TodoList = ({ todos }) => {
                         <td>{todo.text}</td>
                         <td>{todo.isCompleted ? 'Complete' : 'Not complete'}</td>
                         <td className="todo-action">
-                            <button className="btn todo-btn">Change status</button>
+                            <button className="btn todo-btn" onClick={() => todoStatus(todo.id)}>Change status</button>
                         </td>
                     </tr>
                 ))}

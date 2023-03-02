@@ -10,11 +10,15 @@ function App() {
   useEffect(() => {
     fetch(`http://localhost:3030/jsonstore/todos`)
       .then(res => res.json())
-      .then(data => {
-        const values = Object.keys(data).map(id => ({id, ...data[id]}))
-        setTodos(values);
+      .then(data => { 
+        const keys = Object.keys(data).map(id => ({id, ...data[id]}));
+        setTodos(keys);
       });
   }, []);
+
+  const todoStatus = id => {
+    console.log(id);
+  }
 
   return (
     <div>
@@ -33,7 +37,7 @@ function App() {
 
             {/* <Loading /> */}
 
-            <TodoList todos={todos}/>
+            <TodoList todos={todos} todoStatus={todoStatus} />
           </div>
         </section>
       </main>
