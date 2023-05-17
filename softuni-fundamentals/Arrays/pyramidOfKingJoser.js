@@ -23,17 +23,11 @@ function pyramid(base, inc) {
     step++;
     let gold = currentBase * currentBase;
 
-    stoneUsed = Math.ceil(stoneUsed * inc);
-    marbleUsed = Math.ceil(marbleUsed * inc);
-    lapisUsed = Math.ceil(lapisUsed * inc);
-    goldUsed = Math.ceil(gold * inc);
-    height = Math.floor(step * inc);
-
-    console.log(`Stone required: ${stoneUsed}`);
-    console.log(`Marble required: ${marbleUsed}`);
-    console.log(`Lapis Lazuli required: ${lapisUsed}`);
-    console.log(`Gold required: ${goldUsed}`);
-    console.log(`Final pyramid height: ${height}`);
+    console.log(`Stone required: ${Math.ceil(stoneUsed * inc)}`);
+    console.log(`Marble required: ${Math.ceil(marbleUsed * inc)}`);
+    console.log(`Lapis Lazuli required: ${Math.ceil(lapisUsed * inc)}`);
+    console.log(`Gold required: ${Math.ceil(gold * inc)}`);
+    console.log(`Final pyramid height: ${Math.floor(step * inc)}`);
 }
 pyramid(23, 0.5)
 
